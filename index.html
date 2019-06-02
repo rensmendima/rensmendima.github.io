@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="de">
+<head>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<!CSS EINBINDEN>
+<link rel="stylesheet" href="probe.css">
+	<meta charset="UTF-8">
+	<title>Unit Converter</title>
+<script>
+function populate(s1,s2){
+	var s1 = document.getElementById(s1);
+	var s2 = document.getElementById(s2);
+	s2.innerHTML = "";
+	if(s1.value == "Länge"){
+		var optionArray = ["millimeter|Millimeter","zentimeter|Zentimeter","meter|Meter", "kilometer|Kilometer", "fuß|Fuß"];
+	} else if(s1.value == "Zeit"){
+		var optionArray = ["sekunde|Sekunde","tag|Tag","stunde|Stunde", "minute|Minute", "kalendarjahr|Kalendarjahr"];
+	} else if(s1.value == "Masse"){
+		var optionArray = ["mikrogramm|Mikrogramm","miligramm|Miligramm", "gramm|Gramm", "kilogramm|Kilogramm", "tonne|Tonne"];
+	} else if(s1.value == "Volumen"){
+		var optionArray = ["kubikmeter|Kubikmeter","kubikmillimeter|Kubikmillimeter", "amerikanischer Cup|Amerikanischer Cup", "liter|Liter", "milliliter|Milliliter"];
+	} else if(s1.value == "Kraft") {
+	    var optionArray = ["newton|Newton", "meganewton|Meganewton", "kilonewton|Kilonewton", "sthène|Sthène", "dyn|Dyn"];
+    }	
+for(var option in optionArray){
+		var pair = optionArray[option].split("|");
+		var newOption = document.createElement("option");
+		newOption.value = pair[0];
+		newOption.innerHTML = pair[1];
+		s2.options.add(newOption);
+	}
+}
+</script>
+</head>
+<body>
+<div class="converter-wrapper">
+<h1 class="converter-title">Unit Converter</h1>
+<br>
+<form name="property_form">
+<span>
+<select id="liste" name="liste" onchange="populate(this.id,'side_a'); populate(this.id,'side_b') ">
+  <option value="" disabled selected>Wähle eine Kategorie aus</option>
+  <option value="Länge">Länge</option>
+  <option value="Zeit">Zeit</option>
+  <option value="Masse">Masse</option>
+  <option value="Volumen">Volumen</option>
+  <option value="Kraft">Kraft</option>
+  </span>
+</select>
+</form>
+<br />
+<br>
+</br>
+<br>
+<input type="number" placeholder="Zahl eingeben" id="input">
+<span>=</span>
+<input type="number" placeholder="Ergebnis" id="result">
+<br />
+<span>
+<select id="side_a" name="side_a"></select>
+</span>
+<span>
+<select id="side_b" name="side_b"></select>
+</span>
+<script>
+if ('serviceWorker' in navigator) {
+    // Весь код регистрации у нас асинхронный.
+    navigator.serviceWorker.register('./sw.js')
+      .then(() => navigator.serviceWorker.ready.then((worker) => {
+        worker.sync.register('syncdata');
+      }))
+      .catch((err) => console.log(err));
+}
+</script> 
+</div>
+<script type="text/javascript" src="probe.js"></script>
+</body>
+</html>
