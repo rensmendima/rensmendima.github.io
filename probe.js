@@ -76,7 +76,7 @@ result.value = Number(input.value)*1000;
 result.value = Number(input.value)/1000;
 }else if(inputTypeValue.toLowerCase() === "Fuß".toLowerCase() && resultTypeValue.toLowerCase() === "Millimeter".toLowerCase()){
 //fuß to millimeter
-result.value = Number(input.value)*304.8;
+result.value = Number(input.value)*305;
 }else if(inputTypeValue.toLowerCase() === "Fuß".toLowerCase() && resultTypeValue.toLowerCase() === "Zentimeter".toLowerCase()){
 //fuß to zentimeter
 result.value = Number(input.value)*30.48;
@@ -85,7 +85,7 @@ result.value = Number(input.value)*30.48;
 result.value = Number(input.value)/30.48;
 }else if(inputTypeValue.toLowerCase() === "Millimeter".toLowerCase() && resultTypeValue.toLowerCase() === "Fuß".toLowerCase()){
 //millimeter to fuß
-result.value = Number(input.value)/304.8;
+result.value = Number(input.value)/305;
 }else if(inputTypeValue.toLowerCase() === "Fuß".toLowerCase() && resultTypeValue.toLowerCase() === "Meter".toLowerCase()){
 //fuß to meter
 result.value = Number(input.value)/3.281;
