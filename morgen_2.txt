@@ -1,0 +1,53 @@
+
+
+datepicker symbol
+
+<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js">
+    </script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+
+<div class="container mt-5 mb-5" style="width: 400px">
+<h3>Event Date Picker</h3>
+<div class="input-group">
+<div class="input-group-prepebd">
+<button type="button" id="toggle" class="input-group-text"><i class="fa fa-calendar-alt">
+</i></button>
+</div>
+<input type="text" id="picker" class="form-control">
+</div>
+</div>
+
+<script>
+jQuery.datetimepicker.setDateFormatter('moment')
+$('#picker').datetimepicker({
+    timepicker: false,
+    datepicker: true,
+    format: 'YYYY-MM-DD',
+    value: today(),
+    weeks: true,
+ })
+ $('#toggle').on('click', function(){
+     $('#picker').datetimepicker('toggle')
+ })
+
+
+
+$('#picker').datetimepicker();
+function today(){
+    var d = new Date();
+    var curr_date = d.getDate();
+    var curr_month = d.getMonth() + 1;
+    var curr_year = d.getFullYear();
+    document.write(curr_date + "-" + curr_month + "-" + curr_year);
+}
+
+
+
+
+
+
+</script>
