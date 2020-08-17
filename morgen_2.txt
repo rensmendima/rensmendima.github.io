@@ -3,6 +3,10 @@ https://gitlab.com/unitsp/laravel-hillel-blog/-/tree/master/routes
 
 *************************************
 
+https://github.com/fullcalendar/fullcalendar/issues/4852
+
+********************************************************
+
 https://fullcalendar.io/docs/v4/timeline-resourceRender-demo
 ***********************************************
 
