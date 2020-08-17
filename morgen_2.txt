@@ -3,6 +3,9 @@ https://gitlab.com/unitsp/laravel-hillel-blog/-/tree/master/routes
 
 *************************************
 
+https://fullcalendar.io/docs/v4/timeline-resourceRender-demo
+***********************************************
+
 var title = prompt('Event Title:');
  if (title) {
  start = $.fullCalendar.formatDate(start, "yyyy-MM-dd HH:mm:ss");
