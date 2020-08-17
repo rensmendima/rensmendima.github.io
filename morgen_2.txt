@@ -15,6 +15,10 @@ var title = prompt('Event Title:');
  alert('OK');
  
  ******************************************
+ 
+ https://fullcalendar.io/docs/v4/vertical-resource-resourceRender-demo
+ 
+ ************************************************************************+
 
 
 <script>
