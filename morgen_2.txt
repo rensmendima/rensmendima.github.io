@@ -18,7 +18,10 @@ var title = prompt('Event Title:');
  
  https://fullcalendar.io/docs/v4/vertical-resource-resourceRender-demo
  
- ************************************************************************+
+ ************************************************************************
+ 
+ https://stackoverflow.com/questions/40783090/echo-out-from-mysql-and-add-color-to-text
+ *****************************************************************************
 
 
 <script>
