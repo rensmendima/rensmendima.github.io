@@ -9,6 +9,8 @@ https://github.com/fullcalendar/fullcalendar/issues/4852
 
 https://fullcalendar.io/docs/v4/timeline-resourceRender-demo
 ***********************************************
+https://fullcalendar.io/docs/event-tooltip-demo
+***********************************************************
 
 var title = prompt('Event Title:');
  if (title) {
