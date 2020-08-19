@@ -1,3 +1,26 @@
+https://fullcalendar.io/docs/events-function
+
+https://jsbin.com/yoqorirexu/edit?css,js,output
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 https://gitlab.com/unitsp/laravel-hillel-blog/-/tree/master/routes
 
 
