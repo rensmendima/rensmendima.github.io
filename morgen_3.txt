@@ -1,0 +1,66 @@
+
+
+
+https://github.com/fullcalendar/fullcalendar/issues/4630
+
+
+
+
+
+
+
+
+
+search: nowIndicator doesnt show
+
+
+
+
+
+
+
+dayClick: function(momentDate, allDay, jsEvent, view) {
+		  alert("Click Click");
+	  },
+
+
+
+
+
+
+
+
+
+
+
+
+++++++++++++++++++++
+https://github.com/fullcalendar/fullcalendar/issues/5072
+++++++++++++++++++++++++++++++++
+https://github.com/fullcalendar/fullcalendar/issues/3887
+++++++++++++++++++++++++++++++
+https://codepen.io/acerix/pen/povPqBr?&editable=true&editors=001
++++++++++++++++++++++++
+https://github.com/fullcalendar/fullcalendar/issues/5250
+
+++++++++++++++++++++++++++++
+
+++++++++++++
+https://fullcalendar.io/docs/custom-view-with-js
++++++++++++++++++++++
+COLUMNS SCHMALER???
+#calendar {
+  max-width: 200px;
+  margin: 0 auto;
+}
+++++++++++++++++++++++++++++++++++
+https://stackoverflow.com/questions/18997724/how-to-change-scroll-bar-position-with-css/18998575#18998575
++++++++++++++++++++++++++++++++++++++
+
+https://fullcalendar.io/docs/angular
+
++++++++++++++++++++
+https://github.com/fullcalendar/fullcalendar/issues/5380
++++++++++++++++++++
+https://github.com/fullcalendar/fullcalendar/issues/4367
+
