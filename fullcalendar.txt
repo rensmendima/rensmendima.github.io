@@ -1,0 +1,62 @@
+
+SLOT WIDTH
+https://github.com/fullcalendar/fullcalendar-scheduler/issues/252
+
+https://fullcalendar.io/docs/upgrading-from-v4
+
+https://stackoverflow.com/questions/15139527/fixed-column-widths-in-resource-fullcalendar
+
+https://fullcalendar.io/docs/v3/events-function
+
+https://stackoverflow.com/questions/26252938/fullcalendar-typeerror-fullcalendar-is-not-a-function
+
+
+https://fullcalendar.io/docs/timeline-view --> hier slotMinWidth: 2, und dann wird schmaler!!!
+
+
+
+ZUSATZ
+#############################################################################
+
+https://github.com/fullcalendar/fullcalendar/issues/4864 --> easily style lines between days (vertical resource view)
+
+https://github.com/fullcalendar/fullcalendar/issues/4857 --> multiple definitions for selectConstraint/eventConstraint
+
+https://github.com/fullcalendar/fullcalendar/issues/5095 --> Option to force the title to display a single date instead of the date range
+
+https://codepen.io/maurroj/pen/ebrZQL --> ID USERS & ID RESSOURCES
+
+https://fullcalendar.io/docs/view-specific-options --> View-Specific Options
+
+https://github.com/fullcalendar/fullcalendar/issues/4609 --> now indicator across entire week in timeGrid view
+
+https://github.com/fullcalendar/fullcalendar/issues/3175 --> options that depend on screen size
+
+https://github.com/fullcalendar/fullcalendar/issues/4869 --> event DnD free vertical movement while obeying snapDuration in timeline views
+
+scrollTime: 100 * 24 * 60 * 60 * 1000 ---> PROBIEREN
+
+https://github.com/fullcalendar/fullcalendar/issues/3316 --> html in customButtons 
+
+https://github.com/fullcalendar/fullcalendar/issues/345 --> CSS class for days w/ events over them
+
+https://github.com/fullcalendar/fullcalendar/issues/4630 --> grau slot selectble
+
+https://codepen.io/acerix/pen/povPqBr?&editable=true&editors=001 --> event output (if c =0)
+
+https://fullcalendar.io/docs/custom-view-with-js --> Custom Views via JS (let HTML)
+
+https://codepen.io/acerix/pen/JjYJeNq?editors=0010 --> button test click im Feld Fahrzeug
+
+
+
+
+
+
+
+
+
+
+STOP: Copy events via ctrl, drag & drop
+
+
