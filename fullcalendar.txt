@@ -1,4 +1,48 @@
 
+button TODAY activate
+fullcalendar button today activate
+https://stackoverflow.com/questions/39645324/fullcalendar-make-today-button-for-current-month-active
+The 'today' button is made inactive automatically when today's date is visible in the rendered calendar area since there is no point in jumping to 'today' if it is already visible. 
+
+
+
+
+
+
+
+
+
+
+
+
+alert
+https://stackoverflow.com/questions/51385666/jquery-filtering-with-radio-buttons-in-fullcalendar
+https://jsfiddle.net/ayx0fkz3/
+https://realrashid.github.io/sweet-alert/helpers?id=helpers
+https://stackoverflow.com/questions/37358423/how-to-redirect-page-after-click-on-ok-button-on-sweet-alert
+https://sweetalert2.github.io/#input-types
+https://www.appcues.com/blog/67-open-source-modal-window-plugins-made-with-jquery-javascript-css-and-more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 SLOT WIDTH
 https://github.com/fullcalendar/fullcalendar-scheduler/issues/252
 
