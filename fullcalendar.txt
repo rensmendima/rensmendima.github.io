@@ -1,4 +1,37 @@
 
+
+https://therichpost.com/how-to-open-sweetalert-modal-popup-on-event-click-fullcalendar/
+https://sweetalert.js.org/guides/
+
+
+
+1. composer require realrashid/sweet-alert
+2. @include('sweetalert::alert') -> перед </body>
+3. php artisan sweetalert:publish
+4. in web.php: 
+Route::get('/', function () {
+    alert()->html('<i>HTML</i> <u>example</u>',"
+  You can use <b>bold text</b>,
+  <a href='//github.com'>links</a>
+  and other HTML tags
+",'success');
+    return view('welcome');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 button TODAY activate
 fullcalendar button today activate
 https://stackoverflow.com/questions/39645324/fullcalendar-make-today-button-for-current-month-active
