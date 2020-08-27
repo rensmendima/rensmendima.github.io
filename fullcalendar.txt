@@ -1,4 +1,48 @@
 
+https://stackoverflow.com/questions/2167602/optimum-way-to-compare-strings-in-javascript
+
+
+
+
+function deepEqual (obj1, obj2){
+   return JSON.stringify(obj1)===JSON.stringify(obj2);
+}
+
+
+**********************************************************
+
+function deepEqual (obj1, obj2){
+
+if(obj1 === obj2){
+     return true;
+ }
+ else{
+     if(Object.keys(obj1).length != Object.keys(obj2).length){ // Проверка на одинаковое количество свойств
+         return false;
+     }
+     for(var propName in obj1){
+
+         if (! obj2.hasOwnProperty(propName)) { // Есть ли свойства в обоих объектах
+             return false;
+         }
+         if(obj1[propName].valueOf() !== obj2[propName].valueOf()){ // Одинаковы ли значения свойст 
+             if(! deepEqual(obj1[propName], obj2[propName]) ){ // проверка объекта в объекте
+                 return false;
+             }
+
+        }
+     }
+ } 
+ return true; }
+
+
+
+
+
+
+
+
+
 
 https://therichpost.com/how-to-open-sweetalert-modal-popup-on-event-click-fullcalendar/
 https://sweetalert.js.org/guides/
