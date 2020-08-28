@@ -34,162 +34,464 @@ https://fullcalendar.io/docs/v4/timeline-resourceRender-demo
 ***********************************************
 https://fullcalendar.io/docs/event-tooltip-demo
 ***********************************************************
+@extends ('layouts.default')
 
-var title = prompt('Event Title:');
- if (title) {
- start = $.fullCalendar.formatDate(start, "yyyy-MM-dd HH:mm:ss");
- end = $.fullCalendar.formatDate(end, "yyyy-MM-dd HH:mm:ss");
- $.ajax({
- url: 'http://localhost/fullcalendar/add_events.php',
- data: 'title='+ title+'&start='+ start +'&end='+ end ,
- type: "POST",
- success: function(json) {
- alert('OK');
- 
- ******************************************
- 
- https://fullcalendar.io/docs/v4/vertical-resource-resourceRender-demo
- 
- ************************************************************************
- 
- https://stackoverflow.com/questions/40783090/echo-out-from-mysql-and-add-color-to-text
- *****************************************************************************
+@section ('header')
 
 
+<link rel="stylesheet" href="{{ Bust::url('/assets/fullcalendar/lib/main2.css') }}">
+<link rel="stylesheet" href="{{ Bust::url('/assets/fullcalendar/lib/main.css') }}">
+
+<script src='{{asset('assets/fullcalendar/lib/main.js')}}'></script>
+
+
+
+
+<script src='{{asset('assets/fullcalendar/lib/locales/de.js')}}'></script>
+
+<script src='{{asset('assets/fullcalendar/lib/locales.js')}}'></script>
+
+{!! HTML::script('js/backend/calendar.js') !!}
+{!! HTML::style('css/datepicker/default.css') !!}
+{!! HTML::style('css/datepicker/default.date.css') !!}
+
+	{{-- DATEPICKER --}}
+	{!! HTML::script('js/datepicker/picker.js') !!}
+	{!! HTML::script('js/datepicker/picker.date.js') !!}
+  {!! HTML::script('js/datepicker/translations/de_DE.js') !!}
+
+  {{-- CALCULATOR --}}
+  {!! HTML::script('js/booking/booking_calculator_backend.js?190604') !!}
+
+
+  
 <script>
-
+var calendar ;
+var initial_picker = 0;
+var div = document.createElement("div")
+var newContent = document.createTextNode("Hi there and greetings!"); 
+div.appendChild(newContent);
   document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
+    
 
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      headerToolbar: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay'
-      },
-      initialDate: '2020-06-12',
-      navLinks: true, // can click day/week names to navigate views
+    /* initialize the external events
+    -----------------------------------------------------------------*/
+
+
+
+    /* initialize the external events
+    -----------------------------------------------------------------*/
+
+    
+
+    /* initialize the calendar
+    -----------------------------------------------------------------*/
+
+    
+    var calendarEl = document.getElementById('calendar');
+    calendar = new FullCalendar.Calendar(calendarEl, {
+    initialDate: '{{$date ?? now()}}',
+
+    events: '{{ route("bookings.overview.bookings") }}?city_id={{ $city_id ?? null}}',
+
+    //slot width
+    slotMinWidth: 20,
+    slotMinTime: '05:00:00',
+      slotMaxTime: '22:00:00',
+    
+   
+      //neue Buchungen anlegen 
       selectable: true,
       selectMirror: true,
+      
+
+      customButtons: {
+        DatePicker: {
+          text: 'Datum',
+            click: function(event) {
+               if(!initial_picker){
+                  var picker = $(event.target).pickadate({
+                  timepicker: false,
+                  datepicker: true,
+                  format: 'yyyy-mm-dd',
+                  value: '2020-07-27',
+                  left: 'today',
+                  weeks: true,
+                });
+                picker.on('change', function(event) {
+                  var date = $(event.target).val();
+                  var url = new URL(window.location.href)
+                  url.searchParams.set('date', date)
+                  window.location = url
+              })
+              initial_picker = 1
+            }
+          }
+        }
+      },
+
+      //scrollTime: '08:00', // undo default 6am scrollTime
+      headerToolbar: {
+        left: 'prev today prev,next DatePicker',
+        center: 'title',
+        right: 'resourceTimelineTenDay,resourceTimelineDay'
+      },
+
+
+
+
+
+      //neue Buchung anlegen mit prompt()
       select: function(arg) {
-        var title = prompt('Event Title:');
-        if (title) {
-          calendar.addEvent({
-            title: title,
-            start: arg.start,
-            end: arg.end,
-            allDay: arg.allDay
-          })
-        }
+        var title = prompt('Neue Buchung anlegen?\n\n' + '1 -> intern\n' + '2 -> extern\n\n');
+        switch (title) {
+     
+          case "1": //interne Buchung 
+          var url = new URL("/bookings/create", window.location.origin)
+          url.searchParams.set('vehicle_id', arg.resource.id)
+          url.searchParams.set('start_time', arg.start.getTime() / 1000)
+          url.searchParams.set('end_time', arg.end.getTime() / 1000)
+
+          window.location = url
+        
         calendar.unselect()
-      },
-      eventClick: function(arg) {
-        if (confirm('Are you sure you want to delete this event?')) {
-          arg.event.remove()
+        break; 
+
+        case "2": //externe Buchung 
+          var url = new URL("/create-intern", window.location.origin)
+          url.searchParams.set('vehicle_id', arg.resource.id)
+          url.searchParams.set('start_time', arg.start.getTime() / 1000)
+          url.searchParams.set('end_time', arg.end.getTime() / 1000)
+          
+
+          window.location = url
+        
+        calendar.unselect()
+        break; 
+      }},
+      dayMaxEvents: true,  
+
+      
+
+
+
+      
+
+      
+      //Buchungsdetails ansehen
+      eventClick:function(arg) {
+        var title = confirm('Buchungsdetails ansehen?');
+        if (title) {
+          var url = new URL("/bookings/" + arg.event.id, window.location.origin)
+          window.open(url, "_blank")
+
         }
       },
-      editable: true,
-      dayMaxEvents: true, // allow "more" link when too many events
-      events: [
-        {
-          title: 'All Day Event',
-          start: '2020-06-01'
+
+
+
+
+
+
+      //Bildschirmgröße
+      contentHeight: 700,
+      droppable: true, // this allows things to be dropped onto the calendar
+      
+
+
+
+ 
+
+
+
+
+
+//neue Buchungen anlegen
+
+      //dateClick: function(info) {
+      //alert('clicked ' + info.dateStr + ' on resource ' + info.resource.id);
+    //},
+
+    //select: function(info) {
+      //alert('selected ' + info.startStr + ' to ' + info.endStr + ' on resource ' + info.resource.id);
+      //calendar.addEvent({
+        //title: 'dynamic event', 
+        //start: info.startStr,
+        //end: info.endStr,
+        //allDay: true
+      //});
+    //},
+
+
+
+
+
+    
+
+
+
+
+
+      locale: 'de',
+      initialView: 'resourceTimelineTenDay',
+      scrollTime: '08:00',
+
+      
+      views: {
+        resourceTimelineDay: {
+          type: 'resourceTimelineDay',
+          duration: { days: 2 },
+          slotDuration: '00:30:00',
+          buttonText: 'Tagesansicht'
         },
-        {
-          title: 'Long Event',
-          start: '2020-06-07',
-          end: '2020-06-10'
+        resourceTimelineThreeDays: {
+          type: 'resourceTimeline',
+          duration: { days: 3 },
+          slotDuration: '00:30:00',
+          buttonText: '3 Tage'
         },
-        {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2020-06-09T16:00:00'
-        },
-        {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2020-06-16T16:00:00'
-        },
-        {
-          title: 'Conference',
-          start: '2020-06-11',
-          end: '2020-06-13'
-        },
-        {
-          title: 'Meeting',
-          start: '2020-06-12T10:30:00',
-          end: '2020-06-12T12:30:00'
-        },
-        {
-          title: 'Lunch',
-          start: '2020-06-12T12:00:00'
-        },
-        {
-          title: 'Meeting',
-          start: '2020-06-12T14:30:00'
-        },
-        {
-          title: 'Happy Hour',
-          start: '2020-06-12T17:30:00'
-        },
-        {
-          title: 'Dinner',
-          start: '2020-06-12T20:00:00'
-        },
-        {
-          title: 'Birthday Party',
-          start: '2020-06-13T07:00:00'
-        },
-        {
-          title: 'Click for Google',
-          url: 'http://google.com/',
-          start: '2020-06-28'
+        resourceTimelineTenDay: {
+          type: 'resourceTimeline',
+          duration: { days: 7 },
+          slotDuration: '00:30:00',
+          buttonText: 'Wochenasicht'
         }
-      ]
+      },
+
+     
+     
+
+      resourceAreaHeaderContent: 'Fahrzeug',
+
+      resourceOrder: 'desc_web',
+
+
+
+
+      
+      //Autopark
+      resources: [
+        @foreach($vehicles as $vehicle)
+        { id: {{ $vehicle->id }},
+        html: true,
+       
+        category: '{{ $vehicle->category->name }}',
+        desc_intern: '{{ $vehicle->desc_intern}}',
+        registration_mark: '{{ $vehicle->registration_mark}}',
+        name: '{{ $vehicle->city->name}}',
+        name_2: '{{ $vehicle->district->name}}',
+        desc_web: '({{$vehicle->desc_web}})',
+      
+
+
+        title: "<th style='color: rgb(0, 128, 0);'>{{ $vehicle->category->name}}</th> {{ $vehicle->desc_intern}}",
+
+        //title: "{{ $vehicle->category->name}} {{ $vehicle->desc_intern}}",
+       
+
+
+      
+          businessHours: [
+            @foreach($vehicle->booking_start_times as $start_times)
+          { 
+            daysOfWeek: [ 0, 1, 2, 3, 4, 5, 6 ],
+            startTime:  '{{ $start_times->time}}', 
+            endTime: '{{ date("H:i", strtotime($start_times->time. "+30 minutes") ) }}' ,
+          }, @endforeach
+        ],
+        },
+        @endforeach 
+      ],
+      
+
+      
+
+      //Resources 4 colors
+      resourceLabelContent: function(arg, createElement) {
+        html = ""
+        html += "<span class='text-warning'>" + arg.resource.extendedProps.category + "</span> "
+        html += "<span class='text-info'>" + arg.resource.extendedProps.desc_intern + "</span> "
+        html += "<span class='text-muted'>" + arg.resource.extendedProps.registration_mark + "</span> "
+        html += "</br>"
+        html += "<span class='vehicle-location'>" + arg.resource.extendedProps.name + "</span> "
+        html += "<span class='vehicle-location'>" + arg.resource.extendedProps.name_2 + "</span> "
+        html += "<span class='vehicle-location'>" + arg.resource.extendedProps.desc_web + "</span> "
+
+        return {html: html}
+      },
+
+
+        //Mieter gleich Fahrer
+    eventDidMount: function(info) {
+      var drivers = ''
+      var a = new String(info.event.extendedProps.mieter);
+
+     
+      
+      Object.entries(info.event.extendedProps.fahrer).forEach(([key, value]) => {
+        drivers += "</br>Fahrer " + " " + (parseInt(key) + 1) + ": " + value + "<br>"
+        console.log(info.event.extendedProps.fahrer ,a);
+       
+
+
+
+
+
+        //Sratus and Status Payment Color 
+        //console.log(info.event.extendedProps.payment);
+            if(-1 != info.event.extendedProps.payment.indexOf("RG versendet")) {
+              info.el.title  = "Dauer: " + " " + info.event.extendedProps.starti + ' ' +  
+        " bis" + ' ' + info.event.extendedProps.endi + ' ' +  "</br>" + "</br>" +
+        " " + "Mieter: " + 
+        info.event.extendedProps.mieter + "</br>" +
+        drivers +  "</br>" + "</br>" + "</span> <span class='label label-info'>" + 
+        info.event.extendedProps.status + "</span> <span class='label label-success'>" + 
+        info.event.extendedProps.payment
+            }
+
+
+            if(-1 != info.event.extendedProps.payment.indexOf("Gutschrift")) {
+            //console.log(info.event.extendedProps.payment);
+                   info.el.title  = "Dauer: " + " " + 
+        info.event.extendedProps.starti + ' ' +  
+        " bis" + ' ' + info.event.extendedProps.endi + ' '  +  "</br>" + "</br>" +
+        " " + "Mieter: " + 
+        info.event.extendedProps.mieter + "</br>" +
+        drivers +  "</br>" + "</span> <span class='label label-info'>" + 
+        info.event.extendedProps.status + "</span> <span class='label label-info'>" + 
+        info.event.extendedProps.payment
+            }
+
+            if(-1 != info.event.extendedProps.payment.indexOf("bezahlt")) {
+              if(-1 != info.event.extendedProps.status.indexOf("freigegeben")) {
+            //console.log(info.event.extendedProps.payment);
+                   info.el.title  = "Dauer: " + " " + 
+        info.event.extendedProps.starti + ' ' +   
+        " bis" + ' ' + info.event.extendedProps.endi + ' '  +  "</br>" + "</br>" +
+        " " + "Mieter: " + 
+        info.event.extendedProps.mieter + "</br>" +
+        drivers +  "</br>" + "</span> <span class='label label-success'>" + 
+        info.event.extendedProps.status + "</span> <span class='label label-success'>" + 
+        info.event.extendedProps.payment
+            }
+          }
+
+          if(-1 != info.event.extendedProps.payment.indexOf("bezahlt")) {
+              if(-1 != info.event.extendedProps.status.indexOf("storniert")) {
+            //console.log(info.event.extendedProps.payment);
+                   info.el.title  = "Dauer: " + " " + 
+        info.event.extendedProps.starti + ' ' +  
+        " bis" + ' ' + info.event.extendedProps.endi + ' '  +  "</br>" + "</br>" +
+        " " + "Mieter: " + 
+        info.event.extendedProps.mieter + "</br>" +
+        drivers +  "</br>" + "</span> <span class='label label-danger'>" + 
+        info.event.extendedProps.status + "</span> <span class='label label-success'>" + 
+        info.event.extendedProps.payment
+            }
+          }
+
+            if(-1 != info.event.extendedProps.payment.indexOf("Buchhaltung")) {
+            //console.log(info.event.extendedProps.payment);
+                   info.el.title  = "Dauer: " + " " + 
+        info.event.extendedProps.starti + ' ' +  
+        " bis" + ' ' + info.event.extendedProps.endi + ' '  +  "</br>" + "</br>" +
+        " " + "Mieter: " + 
+        info.event.extendedProps.mieter + "</br>" +
+        drivers +  "</br>" + "</span> <span class='label label-warning'>" + 
+        info.event.extendedProps.status + "</span> <span class='label label-warning'>" + 
+        info.event.extendedProps.payment 
+            }
+
+           
+        
+
+
+
+      })
+
+
+
+
+
+
+      $(info.el).tooltip({
+        placement: 'top',
+        trigger: 'hover',
+        container: 'body',
+        html: true,
+
+        
+
+        title: "Dauer: " + " " + 
+        info.event.extendedProps.starti + ' ' +
+        " bis" + ' ' + info.event.extendedProps.endi + ' ' +  "</br>" +
+        " " +
+        info.event.extendedProps.mieter + "</br>" +
+        drivers + "Notizen: " + info.event.extendedProps.note + "</br>" + "</br>" +
+        "</span> <span class='label label-info'>" + 
+        info.event.extendedProps.status + info.event.extendedProps.payment
+
+        
+      } ); 
+    },
+
+     
+   
+
+   
+
+      drop: function(arg) {
+        console.log('drop date: ' + arg.dateStr)
+
+        if (arg.resource) {
+          console.log('drop resource: ' + arg.resource.id)
+        }
+
+        // is the "remove after drop" checkbox checked?
+        if (document.getElementById('drop-remove').checked) {
+          // if so, remove the element from the "Draggable Events" list
+          arg.draggedEl.parentNode.removeChild(arg.draggedEl);
+        }
+      },
+      eventReceive: function(arg) { // called when a proper external event is dropped
+        console.log('eventReceive', arg.event);
+      },
+      eventDrop: function(arg) { // called when an event (already on the calendar) is moved
+        console.log('eventDrop', arg.event);
+      },
+      
     });
 
+  
+    
     calendar.render();
+
   });
 
-</script>
-<style>
-
-  body {
-    margin: 40px 10px;
-    padding: 0;
-    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-    font-size: 14px;
-  }
-
-  #calendar {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-</style>
-</head>
-<body>
-
-  <div id='calendar'></div>
-
-</body>
-</html>
-
-
-
-
-$('#picker').datetimepicker();
-function today(){
-    var d = new Date();
-    var curr_date = d.getDate();
-    var curr_month = d.getMonth() + 1;
-    var curr_year = d.getFullYear();
-    document.write(curr_date + "-" + curr_month + "-" + curr_year);
-}
-
-
-
-
 
 
 </script>
+
+@stop
+
+@section('container-override')
+<div class="container2">
+	@stop
+
+@section ('content')
+      
+ </div>
+
+ <div id='wrap'>
+    <div id='calendar'></div>
+
+    <div style='clear:both'></div>
+
+
+  </div>
+
+  
+
+  @stop
+
+  
