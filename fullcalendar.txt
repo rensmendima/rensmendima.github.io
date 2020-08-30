@@ -1,4 +1,26 @@
 
+https://github.com/fullcalendar/fullcalendar/issues/265
+https://stackoverflow.com/questions/12429245/jquery-full-calendar-remove-scroll-bar
+https://stackoverflow.com/questions/16533877/full-calendar-fit-to-container-and-hide-scroll
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 https://stackoverflow.com/questions/2167602/optimum-way-to-compare-strings-in-javascript
 
 
