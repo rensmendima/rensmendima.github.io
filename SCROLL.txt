@@ -1,0 +1,67 @@
+
+
+
+damages.blade.php
+
+
+<div class="container">
+<form action="{{ route('image.upload')}}" method="post" enctype="multipart/form-data">
+{{ csrf_field() }}
+    <div class="form-group">
+        <input type="file" name="image">
+    </div>
+    <button class="btn btn-default" type="submit">Bild hochladen</button>
+</form>
+
+@isset($path)
+    <img class="img-fluid" src="{{ asset('/storage/' . $path) }}">
+    @endisset
+</div>
+
+
+********************************************************************************
+
+web.php
+
+
+Route::get('/', function() {
+    return view('damages');
+});
+
+Route::post('image/upload', 'ImageController@upload')->name('image.upload');
+
+
+********************************************************************************
+
+ImageController.php
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class ImageController extends Controller
+{
+    public function upload(Request $request)
+    {
+      $path = $request->file('image')->store('uploads', 'public');
+      return view('damages', ['path'=>$path]);
+    }
+}
+
+
+
+********************************************************************************
+
+filesystems.php
+
+   'public' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+
+*********************************************************************************
+
