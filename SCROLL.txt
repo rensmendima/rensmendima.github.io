@@ -1,4 +1,5 @@
-
+https://graker.ru/news/2020/02/17/private-file-storage-in-laravel
+********************************************************************
 
 
 damages.blade.php
