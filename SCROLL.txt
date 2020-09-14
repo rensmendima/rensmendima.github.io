@@ -1,3 +1,38 @@
+
+https://subinsb.com/table-rows-with-alternate-colours/
+
+Dynamically set row color column
+fullcalendar Dynamically set row color
+Dynamically set row color
+column alternating row color fullcalendar
+
+http://jsfiddle.net/wnCgL/
+
+html/css table with different colors rows
+
+https://www.gridphp.com/docs/conditional-formatting/
+
+https://www.geeksforgeeks.org/how-to-set-alternate-table-row-color-using-css/
+
+https://docs.laravel-enso.com/backend/tables.html#installation
+
+https://blogs.sap.com/2016/12/02/binding-based-dynamic-background-colors-for-sap.m.table-rows/
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 COOKIE
 
 
