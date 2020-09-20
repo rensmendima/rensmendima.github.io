@@ -1,3 +1,6 @@
+placement: topp --> selbst definieren
+
+
 
 outside
 
@@ -15,6 +18,8 @@ https://stackoverflow.com/questions/25726709/delete-event-by-dragging-it-outside
 
 ZUSATZ 
 изменить файл изображения: https://webformyself.com/zagruzka-izobrazhenij-s-izmeneniem-razmera/
+
+https://learn.javascript.ru/coordinates-document
 
 
 
