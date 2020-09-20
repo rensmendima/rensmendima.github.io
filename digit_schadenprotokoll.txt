@@ -1,4 +1,41 @@
 
+outside
+
+eventDragStop: function(event,jsEvent) {
+    alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+    if( (300 <= jsEvent.pageX) & (jsEvent.pageX <= 500) & (130 <= jsEvent.pageY) & (jsEvent.pageY <= 170)){
+      alert('delete: '+ event.id);
+      $('#MyCalendar').fullCalendar('removeEvents', event.id);
+    }
+}
+
+https://stackoverflow.com/questions/25726709/delete-event-by-dragging-it-outside-of-the-full-calendar-v-2-with-or-without-tr
+
+
+
+ZUSATZ 
+изменить файл изображения: https://webformyself.com/zagruzka-izobrazhenij-s-izmeneniem-razmera/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 https://www.webslesson.info/2019/03/step-by-step-crud-operation-in-laravel-58-with-file-upload.html
 
