@@ -1,0 +1,48 @@
+
+eventDidMount: function(info) 
+***************************************
+https://codepen.io/EricPorter/pen/xdJLaG
+
+***************************************
+
+https://codepen.io/wwang03/pen/WNbQLyv --> JS-Datei bearbeiten 
+
+ var throttled = _.throttle(trackMove, 0);
+ $(el.info).mousemove(throttled);
+
+***************************************
+
+
+
+
+https://stackoverflow.com/questions/56856254/how-do-i-get-bootstrap-popovers-to-work-in-fullcalendar-4
+
+
+https://qiita.com/niever66/items/90c1140c30bf8da0a996
+
+https://www.thetopsites.net/article/54547426.shtml
+
+http://jsfiddle.net/HJf8q/2/
+
+
+
+
+ eventRender: function(event, element) {
+     $(element).tooltip({title: event.title});
+ }
+
+
+
+https://therichpost.com/angular-8-fullcalendar-event-tooltip/#
+
+
+https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_tooltip&stacked=h
+
+
+https://www.w3schools.com/bootstrap/bootstrap_tooltip.asp
+
+
+https://stackoverflow.com/questions/56856254/how-do-i-get-bootstrap-popovers-to-work-in-fullcalendar-4
+
+
+http://embed.plnkr.co/W8n6LxsLCyZFO6ufPHvW/
