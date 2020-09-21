@@ -5,7 +5,7 @@ https://codepen.io/EricPorter/pen/xdJLaG
 
 ***************************************
 
-https://codepen.io/wwang03/pen/WNbQLyv --> JS-Datei bearbeiten 
+https://codepen.io/wwang03/pen/WNbQLyv --> JS-Datei bearbeiten, убрать серединку подсчета пикселей
 
  var throttled = _.throttle(trackMove, 0);
  $(el.info).mousemove(throttled);
