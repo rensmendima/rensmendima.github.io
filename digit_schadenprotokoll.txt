@@ -37,8 +37,23 @@ https://learn.javascript.ru/coordinates-document
 
 
 
+24-09-2020 ************************************************************************
+
+Speichermethoden
+einen lokalen Server-Speicher oder Datenbank
 
 
+storage --> app --> public --> hier werden alle hochgeladenen Dateien gespeichert
+
+filesystem.php --> korrigieren Disc, kann man eigene Disc verwenden, 
+nehmen wir statt public zum Beispiel private
+https://www.youtube.com/watch?v=NWfFL01rn9Q
+
+https://laravel.su/docs/5.4/filesystem
+
+https://laravel.com/docs/5.6/filesystem
+
+https://pixelwerker.de/laravel-storage-zugriff-ftp-server/
 
 
 
