@@ -1,0 +1,118 @@
+https://graker.ru/news/2020/02/17/private-file-storage-in-laravel
+
+https://www.webslesson.info/2019/03/step-by-step-crud-operation-in-laravel-58-with-file-upload.html
+
+********************************************************************
+
+Koordinaten 
+
+mouse click save position datebase sql php 
+
+http://jsfiddle.net/Darker/nrw7xu2r/2/
+
+https://stackoverflow.com/questions/33665832/how-to-save-coordinates-in-db-with-comments-when-click-on-div-and-show-according
+
+https://www.w3schools.com/html/html_images_imagemap.asp
+
+TOP *****************
+
+https://www.w3schools.com/JSREF/event_clientx.asp
+
+https://stackoverflow.com/questions/41289159/mouse-onclick-event-on-images-created-by-using-php
+
+https://css-tricks.com/tracking-clicks-building-a-clickmap-with-php-and-jquery/
+
+https://laravel-mediable.readthedocs.io/en/latest/uploader.html#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+damages.blade.php
+
+
+<div class="container">
+<form action="{{ route('image.upload')}}" method="post" enctype="multipart/form-data">
+{{ csrf_field() }}
+    <div class="form-group">
+        <input type="file" name="image">
+    </div>
+    <button class="btn btn-default" type="submit">Bild hochladen</button>
+</form>
+
+@isset($path)
+    <img class="img-fluid" src="{{ asset('/storage/' . $path) }}">
+    @endisset
+</div>
+
+
+********************************************************************************
+
+web.php
+
+
+Route::get('/', function() {
+    return view('damages');
+});
+
+Route::post('image/upload', 'ImageController@upload')->name('image.upload');
+
+
+********************************************************************************
+
+ImageController.php
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class ImageController extends Controller
+{
+    public function upload(Request $request)
+    {
+      $path = $request->file('image')->store('uploads', 'public');
+      return view('damages', ['path'=>$path]);
+    }
+}
+
+
+
+********************************************************************************
+
+filesystems.php
+
+   'public' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+
+*********************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
