@@ -25,6 +25,37 @@ https://css-tricks.com/tracking-clicks-building-a-clickmap-with-php-and-jquery/
 https://laravel-mediable.readthedocs.io/en/latest/uploader.html#
 
 
+30.09.2020 ******************************
+
+Drag-resize-rotate-library php
+div mouse clicking create and resize div
+https://www.w3.org/TR/resize-observer/
+
+
+BIBLIOTHEK: https://github.com/daybrush/moveable
+
+ELLIPSE KOORDINATEN: https://www.w3docs.com/learn-html/svg-ellipse.html
+
+
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_draggable
+
+http://jsfiddle.net/7Asn6/
+
+https://github.com/daybrush/moveable
+
+https://www.cssscript.com/draggable-resizable-rotatable-plugin/
+
+https://konvajs.org/docs/sandbox/Image_Resize.html
+
+http://jsfiddle.net/M8kms/2/
+
+https://medium.com/the-z/making-a-resizable-div-in-js-is-not-easy-as-you-think-bda19a1bc53d
+
+https://www.codeproject.com/Articles/609052/Simple-HTML5-SVG-Move-and-Resize-Tool
+
+https://konvajs.org/docs/select_and_transform/Transform_Events.html
+
+
 
 
 
