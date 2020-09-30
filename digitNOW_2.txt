@@ -55,6 +55,8 @@ https://www.codeproject.com/Articles/609052/Simple-HTML5-SVG-Move-and-Resize-Too
 
 https://konvajs.org/docs/select_and_transform/Transform_Events.html
 
+https://snipp.ru/jquery/cursor-coords
+
 
 
 
