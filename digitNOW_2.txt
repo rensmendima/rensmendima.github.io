@@ -61,6 +61,60 @@ https://snipp.ru/jquery/cursor-coords
 
 
 
+04.10.2020 ******************************
+
+ПЕРЕДАТЬ ПЕРЕМЕННУЮ JS В PHP
+https://stackoverflow.com/questions/40780059/ajax-simple-js-variable-to-php
+_____________________________________________________________________________
+
+НЕ ЗАБЫТЬ URL переменную, которая в файле blade.php принимает ссылку. Например UserMenu = "...."
+_____________________________________________________________________________
+
+КАРТИНКА КАК БЕКГРАУНД ФОН В КЛАССЕ DIV 
+https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_background_hero
+
+/* Default state */
+#button_img {
+    background-image: url('button_off.png');
+}
+
+/* Clicked/touched state */
+#button_img:active { 
+    background-image: url('button_on.png');
+}
+_____________________________________________________________________________
+
+
+ЗНАЧЕНИЕ ПЕРЕМЕННОЙ ОПУБЛИКОВАТЬ В БАЗЕ ДАННЫХ, ПОСМОТРЕТЬ КАК ПУБЛИКУЮТСЯ ДАННЫЕ CUSTOMERS
+
+public function submit(Request $req) {
+$contact = new Contact();
+$contact -> name = $req -> input('name');
+$contact -> name = $req -> input('email');
+$contact -> save();
+return redirect()->route('home');
+}
+
+_____________________________________________________________________________
+
+https://progi.pro/peredat-peremennuyu-javascript-v-php-cherez-ajax-4778868
+
+https://serblog.ru/kak-peredat-znachenie-peremennoj-iz-javascript-v-php/
+
+https://www.mediaevent.de/javascript/touch-events.html
+
+https://stackoverflow.com/questions/11144370/using-mousedown-event-on-mobile-without-jquery-mobile
+
+https://developer.mozilla.org/ru/docs/Web/API/Touch_events/Using_Touch_Events
+
+https://stackoverflow.com/questions/28432350/javascript-touchstart-and-touchend-locations
+
+
+
+
+
+
+
 
 
 
