@@ -1,0 +1,27 @@
+quasar - Vue.js lernen 
+Flutter - Programmiersprache Dart
+framework7  - 
+
+
+Flutter - Для разработки с Flutter используется язык программирования под названием Dart.
+Dart фокусируется на развитии вёрстки веб-страниц;
+
+
+Потому что ионик на ангуляре, с Vue его можно использовать только в виде вебкомпонентов.
+
+Набором компонентов… Tree, Timeline, Knob, LinearProgress например. 
+А сейчас еще пилится полноценная замена fullcalendar + resourceplanner — тогда вообще будет замечательно
+
+https://fructcode.com/ru/blog/what-is-webpack/ !!!!!!!!!!!!!!
+
+jQuery Mobile 
+
+https://framework7.io/
+https://habr.com/ru/post/257889/
+
+https://habr.com/ru/post/266301/
+
+
+Самый простой способ проверить как ваше html5 приложение будет работать с использованием crosswalk, 
+это установить Intel XDK, 
+создать пустой «Standart HTML5» проект, и заменить в созданном проекте папку www на вашу
