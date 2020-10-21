@@ -1,3 +1,19 @@
+POINTS
+
+
+https://stackoverflow.com/questions/50620059/draw-points-using-x-and-y-coordinates-from-database-using-javascript
+
+https://stackoverflow.com/questions/6802956/how-to-position-a-div-in-a-specific-coordinates
+
+
+
+
+
+
+
+
+
+
 https://graker.ru/news/2020/02/17/private-file-storage-in-laravel
 
 https://www.webslesson.info/2019/03/step-by-step-crud-operation-in-laravel-58-with-file-upload.html
