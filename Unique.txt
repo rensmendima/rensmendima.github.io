@@ -1,0 +1,25 @@
+
+
+
+
+
+UNIQUE В РЕДАКТИРОВАНИИ
+https://stackoverflow.com/questions/43822596/laravel-unique-and-exists-validation-class-does-not-exist
+https://stackoverflow.com/questions/46743728/laravel-rule-to-update-unique-column-if-it-exists
+
+
+СОХРАНЯТЬ INPUT
+
+ТОП ССЫЛКА: https://laravel.io/forum/05-03-2015-l5-return-validation-errors-with-old-user-input
+
+
+
+https://stackoverflow.com/questions/50407127/laravel-validation-save-selected-option
+http://htmlbook.ru/html/input/autocomplete
+https://www.codegrepper.com/code-examples/r/laravel+validator+js+save+input+fields
+
+<input class="message-input" type="text" id="i9qq" class="form-control" /><p></p>
+
+https://getbootstrap.com/docs/4.0/components/forms/?
+https://www.codegrepper.com/code-examples/php/laravel+validation+on+error+change+input+value
+
